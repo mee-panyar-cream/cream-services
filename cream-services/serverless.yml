@@ -27,8 +27,13 @@ provider:
 
 functions:
   hello:
-    handler: handler.hello
+    handler: handler.latest
     events:
       - http:
-          path: hello
+          path: meter/latest
           method: get
+
+# Create our resources with separate CloudFormation templates
+resources:
+  # API Gateway Errors
+  - ${file(resources/api-gateway-errors.yml)}
