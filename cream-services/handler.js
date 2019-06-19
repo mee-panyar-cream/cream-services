@@ -1,6 +1,11 @@
 export const latest = async (event, context) => {
+  const headers = {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": true
+    };
   return {
     statusCode: 200,
+    headers : headers,
     body: JSON.stringify({
       "device-id":"46820256-0ed7-4895-b2d4-6691a081b2a5",
       "reading-time" :"tbd",
