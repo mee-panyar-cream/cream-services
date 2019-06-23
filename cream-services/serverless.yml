@@ -33,7 +33,7 @@ functions:
           path: meter/latest
           method: get
   create:
-    handler: create.main
+    handler: create.create
     events:
       - http:
           path: meter/input
