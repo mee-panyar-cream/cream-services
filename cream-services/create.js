@@ -1,23 +1,25 @@
 export function create(event, context, callback) {
-    console.log(event);
+  console.log('Event', event)
+
+    var data = JSON.parse(event.body);
     try {
       var meterInput = {
-          deviceId: event["device-id"],
-          readingTime: event["reading-time"],
+          deviceId: data["device-id"],
+          readingTime: data["reading-time"],
           reading: {
-            voltageV: event.reading["voltage-V"],
-            currentA: event.reading["current-A"],
-            activePowerW: event.reading["active-power-W"],
-            accumulatedPowerKWh: event.reading["accumulated-power-kWh"],
-            frequencyHz: event.reading["frequency-Hz"],
-            powerFactor: event.reading["power-factor"]
+            voltageV: data.reading["voltage-V"],
+            currentA: data.reading["current-A"],
+            activePowerW: data.reading["active-power-W"],
+            accumulatedPowerKWh: data.reading["accumulated-power-kWh"],
+            frequencyHz: data.reading["frequency-Hz"],
+            powerFactor: data.reading["power-factor"]
           }
       };
       console.log(meterInput);
 
       const response = {
         statusCode: 200,
-        message: "Meter Input created:"
+        body: '{}'
       };
       callback(null, response);
       return;
