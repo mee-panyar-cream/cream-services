@@ -32,6 +32,12 @@ functions:
       - http:
           path: meter/latest
           method: get
+  create:
+    handler: create.create
+    events:
+      - http:
+          path: meter/input
+          method: post
 
 # Create our resources with separate CloudFormation templates
 resources:
