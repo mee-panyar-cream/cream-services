@@ -51,22 +51,23 @@ const message = ({ time, ...rest }) => new Promise((resolve, reject) =>
 
 ### Installation
 
-To create a new Serverless project.
+Install Node.js
+https://nodejs.org/en/download/
 
+Install serverless
 ``` bash
-$ serverless install --url https://github.com/AnomalyInnovations/serverless-nodejs-starter --name my-project
+npm install -g serverless
 ```
 
-Enter the new directory
-
+Clone current project
 ``` bash
-$ cd my-project
+git clone git@github.com:mee-panyar-cream/cream-services.git
 ```
 
-Install the Node.js packages
-
+Open project and install Node.js packages
 ``` bash
-$ npm install
+cd cream-services
+npm install
 ```
 
 ### Usage
