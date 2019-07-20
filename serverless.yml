@@ -19,7 +19,7 @@ custom:
     stages:
       # list of stages for which the plugin should be enabled
       - local
-    autostart: true  # optional - start LocalStack in Docker on Serverless deploy
+    autostart: false  # optional - start LocalStack in Docker on Serverless deploy
     endpoints:
       # This section is optional - can be used for customizing the target endpoints
       S3: http://localhost:4572
@@ -31,10 +31,7 @@ custom:
       mountCode: True
     docker:
       # Enable this flag to run "docker ..." commands as sudo
-      sudo: False
-  stages:
-    local:
-
+      sudo: True
 
 provider:
   name: aws

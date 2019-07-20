@@ -1,13 +1,14 @@
 .EXPORT_ALL_VARIABLES:
 
 IMAGE_NAME ?= cream/cream-services
-AWS_SERVICES ?= iam, lambda, dynamodb, apigateway, s3, sns
-TEMPDIR ?= /private${TMPDIR}
+AWS_SERVICES ?= iam, lambda, dynamodb, apigateway, s3, sns, cloudformation
+TEMPDIR ?= ./.tmp
+SLS_DEBUG ?= *
 
-docker-build:      ## Build Docker image
-	docker build -t $(IMAGE_NAME) .
+serverless-local:  ## serverless against localstack
+	serverless deploy --stage local --verbose
 
-run-local:		   ## run docker compose
+localstack:		   ## run docker compose
 	TMPDIR=${TEMPDIR} docker-compose up
 
-.default: docker-build run-local
+.default: localstack

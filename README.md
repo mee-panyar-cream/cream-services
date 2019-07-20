@@ -2,22 +2,31 @@
 
 This project defines the backend services for the CREAM project.
 
-## Running inside Docker
+## Running With Localstack in Docker
 
 Scripts are provided to run the docker commands for you.
 
 ```bash
-make docker-build # builds the docker image
+make localstack # runs localstack inside docker
 
-# Then run 
+# Then in another window.
 
-make run-local # runs docker-compose with the right env-variables
-
+make serverless-local # runs serverless locally using localstack
 ```
 
-## Running Locally
+## Create Required AWS resources in Localstack
+You can install awscli-local which wraps the real aws cli but sets the server address to localhost.
 
-It is generally recommended to run with docker and docker-compose to ensure a consistent build. If you need to run on your base OS then the steps are below.
+```bash
+pip install awscli-local
+```
+
+### Create S3 bucket
+maybe!
+
+### Localstack console is here
+http://localhost:8080
+
 
 ### Requirements
 
