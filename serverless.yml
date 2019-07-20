@@ -5,6 +5,8 @@ service: cream-services
 plugins:
   - serverless-webpack
   - serverless-offline
+  - serverless-localstack
+
 
 # serverless-webpack configuration
 # Enable auto-packing of external modules
@@ -12,6 +14,27 @@ custom:
   webpack:
     webpackConfig: ./webpack.config.js
     includeModules: true
+  localstack:
+    host: http://localhost
+    stages:
+      # list of stages for which the plugin should be enabled
+      - local
+    autostart: true  # optional - start LocalStack in Docker on Serverless deploy
+    endpoints:
+      # This section is optional - can be used for customizing the target endpoints
+      S3: http://localhost:4572
+      CloudFormation: http://localhost:4581
+      Lambda: http://localhost:4574
+      APIGateway : http://localhost:4567
+    lambda:
+      # Enable this flag to improve performance
+      mountCode: True
+    docker:
+      # Enable this flag to run "docker ..." commands as sudo
+      sudo: False
+  stages:
+    local:
+
 
 provider:
   name: aws
@@ -23,7 +46,7 @@ provider:
   # the following line. Also, make sure to not
   # commit your env.yml.
   #
-  #environment: ${file(env.yml):${self:provider.stage}}
+environment: ${file(env.yml):${self:provider.stage}}
 
 functions:
   hello:

@@ -2,6 +2,23 @@
 
 This project defines the backend services for the CREAM project.
 
+## Running inside Docker
+
+Scripts are provided to run the docker commands for you.
+
+```bash
+make docker-build # builds the docker image
+
+# Then run 
+
+make run-local # runs docker-compose with the right env-variables
+
+```
+
+## Running Locally
+
+It is generally recommended to run with docker and docker-compose to ensure a consistent build. If you need to run on your base OS then the steps are below.
+
 ### Requirements
 
 - [Install the Serverless Framework](https://serverless.com/framework/docs/providers/aws/guide/installation/)
