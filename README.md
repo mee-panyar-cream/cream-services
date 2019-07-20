@@ -24,6 +24,8 @@ pip install awscli-local
 ### Create S3 bucket
 maybe!
 
+awslocal s3api create-bucket --bucket ServerlessDeploymentBucket
+
 ### Localstack console is here
 http://localhost:8080
 
