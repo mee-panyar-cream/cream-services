@@ -5,7 +5,7 @@ services:
     image: localstack/localstack
     ports:
       - "4567-4597:4567-4597"
-      - "${PORT_WEB_UI-8080}:${PORT_WEB_UI-8080}"
+      - "${PORT_WEB_UI-9090}:${PORT_WEB_UI-8080}"
     environment:
       - SERVICES=${AWS_SERVICES}
       - DEBUG=*
