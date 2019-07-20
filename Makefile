@@ -1,7 +1,7 @@
 .EXPORT_ALL_VARIABLES:
 
 IMAGE_NAME ?= cream/cream-services
-AWS_SERVICES ?= iam, lambda, dynamodb, apigateway, s3, sns, cloudformation
+AWS_SERVICES ?= iam, lambda, dynamodb, apigateway, s3, sns, cloudformation, sts
 TEMPDIR ?= ./.tmp
 SLS_DEBUG ?= *
 
