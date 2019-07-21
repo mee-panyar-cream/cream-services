@@ -4,6 +4,12 @@ This project defines the backend services for the CREAM project.
 
 ## Running With Localstack in Docker
 
+Note serverless will check if you have any AWS credentials before it runs. 
+If you don't have any, set some dummy ones like this:
+
+serverless config credentials --provider aws --key AKIAIOSFODNN7EXAMPLE --secret wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+
+
 Scripts are provided to run the docker commands for you.
 
 ```bash
@@ -12,6 +18,12 @@ make localstack # runs localstack inside docker
 # Then in another window.
 
 make serverless-local # runs serverless locally using localstack
+```
+
+At this point you view your deployed functions like this:
+
+```
+awslocal lambda list-functions
 ```
 
 ## Create Required AWS resources in Localstack
