@@ -9,7 +9,7 @@ serverless-local:
 	echo "make deploy-to-localstack"
 
 serverless-offline: localstack
-	serverless offline start
+	serverless offline start --stage local
 
 deploy-to-localstack:  ## serverless against localstack
 	serverless deploy --stage local --verbose

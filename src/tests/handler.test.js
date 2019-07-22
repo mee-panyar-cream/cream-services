@@ -1,4 +1,5 @@
-import * as handler from '../handler';
+import * as handler from '../functions/readings/read';
+import * as handler from '../functions/readings/read';
 
 test('latest', async () => {
   const event = 'event';

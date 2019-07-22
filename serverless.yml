@@ -19,6 +19,7 @@ custom:
     stages:
       # list of stages for which the plugin should be enabled
       - local
+      - dev
     autostart: false  # optional - start LocalStack in Docker on Serverless deploy
     endpoints:
       # This section is optional - can be used for customizing the target endpoints
@@ -43,17 +44,20 @@ provider:
   # the following line. Also, make sure to not
   # commit your env.yml.
   #
-environment: ${file(env.yml):${self:provider.stage}}
+# environment: ${file(env.yml):${self:provider.stage}}
 
 functions:
-  hello:
-    handler: handler.latest
+  hello: # TODO rename this to "read"
+    handler: src/main/functions/readings/read.latest
     events:
       - http:
           path: meter/latest
           method: get
+    environment: 
+      redis_host: ${file(./build_config/config.${self:provider.stage}.json):redis_host}
+      redis_port: ${file(./build_config/config.${self:provider.stage}.json):redis_port}
   create:
-    handler: create.create
+    handler: src/main/functions/readings/create.create
     events:
       - http:
           path: meter/input
