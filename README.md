@@ -29,12 +29,13 @@ Use this postman collection to write/read device readings
 
 If you want to try deploying your lambda functions to localstack, then you can try this experimental target
 
-```
+```bash
 make deploy-to-localstack # ensure localstack is available in the docker-compose.yml
 ```
 
 Then you view your deployed functions
-```
+
+```bash
 awslocal lambda list-functions
 ```
 However running functions this way has not yet been solved. 
