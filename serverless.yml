@@ -7,7 +7,6 @@ plugins:
   - serverless-offline
   - serverless-localstack
 
-
 # serverless-webpack configuration
 # Enable auto-packing of external modules
 custom:

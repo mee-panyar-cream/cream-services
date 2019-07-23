@@ -21,7 +21,8 @@ function deviceKey(uuid){
 /**
  * @param {String} uuid 
  * @param {Reading} reading 
- * @returns Promise
+ * @returns either a Promise that resolves when the call succeeds or a promise that throws a redis.ReplyError
+ * https://github.com/NodeRedis/node_redis#error-handling--v26
  */
 function saveLastReading(uuid, reading){
     const jsonReading = JSON.stringify(reading);
@@ -30,6 +31,10 @@ function saveLastReading(uuid, reading){
     return setAsync(LAST_READING + uuid, jsonReading );
 }
 
+/**
+ * @param {String} uuid 
+ * @returns a Promise of a {Reading} . 
+ */
 function getLastReading(uuid){
     const key = deviceKey(uuid);
     console.log('Get Reading for ' + key);

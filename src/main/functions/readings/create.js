@@ -27,9 +27,7 @@ export function create(event, context, callback) {
         callback(null, response);
       });
 
-      
       return;
-
     } catch (e) {
       console.log(e);
       const response = {

@@ -1,5 +1,4 @@
 const dao = require('../../dao/readings_dao_factory').get();
-// const process = require('process');
 
 /**
  * Uses Promise style
@@ -10,7 +9,6 @@ export const latest = async (event, context) => {
   console.log('Event', event)
   console.log('Context', context)
   console.log('Env', process.env)
-
 
   const headers = {
       "Access-Control-Allow-Origin": "*",
@@ -32,8 +30,5 @@ export const latest = async (event, context) => {
         statusCode: 500,
         body: '{"msg":' + JSON.stringify(err)+ '}'
       };
-
     });
-  
-
 }

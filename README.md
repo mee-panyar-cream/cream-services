@@ -7,8 +7,9 @@ This project defines the backend services for the CREAM project.
 Note serverless will check if you have any AWS credentials before it runs. 
 If you don't have any, set some dummy ones like this:
 
+```bash
 serverless config credentials --provider aws --key AKIAIOSFODNN7EXAMPLE --secret wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
-
+```
 
 Scripts are provided to run the docker commands for you.
 
@@ -18,7 +19,7 @@ make serverless-offline # runs serverless locally with redis and or localstack i
 
 At this point your lambda functions are still run by serverless because that has hot reload.
 
-# Manual test functions
+## Manual test functions
 
 Use this postman collection to write/read device readings
 
@@ -48,11 +49,12 @@ pip install awscli-local
 ### Create S3 bucket
 maybe!
 
+```bash
 awslocal s3api create-bucket --bucket ServerlessDeploymentBucket
+```
 
 ### Localstack console is here
 http://localhost:8080
-
 
 ### Requirements
 
