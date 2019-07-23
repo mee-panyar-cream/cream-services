@@ -2,30 +2,40 @@
 
 This project defines the backend services for the CREAM project.
 
-## Running With Localstack in Docker
+## Running With Redis in Docker
 
 Note serverless will check if you have any AWS credentials before it runs. 
 If you don't have any, set some dummy ones like this:
 
+```bash
 serverless config credentials --provider aws --key AKIAIOSFODNN7EXAMPLE --secret wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
-
+```
 
 Scripts are provided to run the docker commands for you.
 
 ```bash
-make serverless-offline # runs serverless locally and localstack
+make serverless-offline # runs serverless locally with redis and or localstack in docker
 ```
 
 At this point your lambda functions are still run by serverless because that has hot reload.
 
+## Manual test functions
+
+Use this postman collection to write/read device readings
+
+[Postman Collection](https://github.com/mee-panyar-cream/cream-services/files/3418485/CREAM-services.postman_collection.json.zip)
+
+
+
 If you want to try deploying your lambda functions to localstack, then you can try this experimental target
 
-```
-make deploy-to-localstack
+```bash
+make deploy-to-localstack # ensure localstack is available in the docker-compose.yml
 ```
 
 Then you view your deployed functions
-```
+
+```bash
 awslocal lambda list-functions
 ```
 However running functions this way has not yet been solved. 
@@ -40,11 +50,12 @@ pip install awscli-local
 ### Create S3 bucket
 maybe!
 
+```bash
 awslocal s3api create-bucket --bucket ServerlessDeploymentBucket
+```
 
 ### Localstack console is here
 http://localhost:8080
-
 
 ### Requirements
 

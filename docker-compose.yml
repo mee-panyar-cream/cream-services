@@ -1,20 +1,24 @@
 version: '2.1'
 
 services:
-  localstack:
-    image: localstack/localstack
+  # localstack:
+  #   image: localstack/localstack
+  #   ports:
+  #     - "4567-4597:4567-4597"
+  #     - "${PORT_WEB_UI-9090}:${PORT_WEB_UI-8080}"
+  #   environment:
+  #     - SERVICES=${AWS_SERVICES}
+  #     - DEBUG=*
+  #     - DATA_DIR=/data
+  #     - PORT_WEB_UI=${PORT_WEB_UI- }
+  #     - LAMBDA_EXECUTOR=${LAMBDA_EXECUTOR- }
+  #     - KINESIS_ERROR_PROBABILITY=${KINESIS_ERROR_PROBABILITY- }
+  #     - DOCKER_HOST=unix:///var/run/docker.sock
+  #   volumes:
+  #     - "./data:/data"
+  #     - "$TEMPDIR:/tmp"
+  #     - "/var/run/docker.sock:/var/run/docker.sock"
+  redis:
+    image: redis
     ports:
-      - "4567-4597:4567-4597"
-      - "${PORT_WEB_UI-9090}:${PORT_WEB_UI-8080}"
-    environment:
-      - SERVICES=${AWS_SERVICES}
-      - DEBUG=*
-      - DATA_DIR=/data
-      - PORT_WEB_UI=${PORT_WEB_UI- }
-      - LAMBDA_EXECUTOR=${LAMBDA_EXECUTOR- }
-      - KINESIS_ERROR_PROBABILITY=${KINESIS_ERROR_PROBABILITY- }
-      - DOCKER_HOST=unix:///var/run/docker.sock
-    volumes:
-      - "./data:/data"
-      - "$TEMPDIR:/tmp"
-      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "6379:6379"
