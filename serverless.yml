@@ -61,7 +61,10 @@ functions:
       - http:
           path: meter/input
           method: post
-
+    environment: 
+      redis_host: ${file(./build_config/config.${self:provider.stage}.json):redis_host}
+      redis_port: ${file(./build_config/config.${self:provider.stage}.json):redis_port}
+      
 # Create our resources with separate CloudFormation templates
 resources:
   # API Gateway Errors

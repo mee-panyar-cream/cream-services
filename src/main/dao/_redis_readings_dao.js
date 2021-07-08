@@ -2,9 +2,8 @@ const redis = require('redis');
 const {promisify} = require('util');
 const config = require('../config/app_config');
 
-
-const client = redis.createClient(config.getValue('redis_port','unknown'),
-                                  config.getValue('redis_host','unknown'));
+const client = redis.createClient(config.getValue('redis_port','not-configured'),
+                                  config.getValue('redis_host','not-configured'));
 
 const getAsync = promisify(client.get).bind(client);
 const setAsync = promisify(client.set).bind(client);
